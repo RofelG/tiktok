@@ -37,7 +37,7 @@ let containerFluidList = document.querySelector('.container-fluid--list');
 containerFluidList.addEventListener('scroll', (e) => {
   let containerList = document.querySelector('.container-list');
 
-  if (containerList.scrollHeight - containerFluidList.scrollTop <= 2000) scrolling = true;
+  if (containerList.scrollHeight - containerFluidList.scrollTop <= 2500) scrolling = true;
 });
 
 let scrollInterval = setInterval(addItem, 1000);
