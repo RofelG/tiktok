@@ -4,38 +4,12 @@
   font-family: 'Nunito', sans-serif;
 }
 
-.filter-row {
-  overflow-x: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  .filter-btn {
-    cursor: pointer;
-    svg {
-      height: 1.5rem;
-      color: rgb(113, 113, 113);
-      transition: color 0.3s ease-out;
-      pointer-events: none;
-    }
-    span {
-      transition: opacity 0.3s ease-out;
-      font-size: 0.8rem;
-      pointer-events: none;
-    }
-    &:hover {
-      svg {
-        color: rgb(0, 0, 0);
-      }
-      span {
-        opacity: 0.6;
-      }
-    }
-  }
+html, body {
+  overflow: hidden;
 }
 
 .navbar {
+  background-color: transparent !important;
   .navbar-brand {
     img {
       width: 40px;
@@ -43,52 +17,42 @@
   }
 }
 
-a {
-  .card {
-    cursor: pointer;
+.container-fluid--list {
+  min-height: -webkit-fill-available;
+  scroll-snap-align: start;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-snap-stop: always;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .container-list {
+    height: 100dvh;
+    &__item {
+      height: 92dvh;
+      scroll-snap-align: start;
+    }
   }
 }
 
-.card {
-  
-  transition: box-shadow 0.3s ease-out;
-  .card-body {
-    &.card-event {
-      svg {
-        height: 6rem;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        translate: -50% -50%;
-        opacity: 0.3;
-        transition: opacity 0.3s ease-out;
-        &:hover {
-          opacity: 0.8;
-        }
-      }
-    }
-    .max-people {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      font-size: 0.8rem;
-    }
-  }
-  &:hover {
-    box-shadow: 0 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
-    .card-body {
-      &.card-event {
-        svg {
-          opacity: 0.8;
-        }
-      }
-    }
-
-  }
+.one {
+  background-color: red;
 }
 
-.modal-event-add {
-  min-height: 150px;
+.two {
+  background-color: blue;
+}
+
+.three {
+  background-color: grey;
+}
+
+.four {
+  background-color: green;
 }
 
 .error {
@@ -101,8 +65,10 @@ a {
 
 footer {
   bottom: 0;
+  height: 8dvh;
   width: 100%;
   background-color: white;
+  overflow: hidden;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -120,7 +86,6 @@ footer {
   }
 
   .navbar {
-    background-color: #343a40 !important;
     .navbar-brand {
       color: white !important;
       img {
@@ -128,30 +93,13 @@ footer {
       }
     }
   }
-
-  .filter-row {
-    .filter-btn {
-      &:hover {
-        svg {
-          color: rgb(255, 255, 255);
-        }
-      }
-    }
-  }
   
-
   .card {
     background-color:#343a40;
   }
 
   .card-body {
     color:black;
-
-    &.card-event {
-      svg {
-        opacity: 0.8;
-      }
-    }
   }
 
   .error {

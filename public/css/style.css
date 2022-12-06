@@ -3,73 +3,52 @@
   font-family: "Nunito", sans-serif;
 }
 
-.filter-row {
-  overflow-x: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-.filter-row::-webkit-scrollbar {
-  display: none;
-}
-.filter-row .filter-btn {
-  cursor: pointer;
-}
-.filter-row .filter-btn svg {
-  height: 1.5rem;
-  color: rgb(113, 113, 113);
-  transition: color 0.3s ease-out;
-  pointer-events: none;
-}
-.filter-row .filter-btn span {
-  transition: opacity 0.3s ease-out;
-  font-size: 0.8rem;
-  pointer-events: none;
-}
-.filter-row .filter-btn:hover svg {
-  color: rgb(0, 0, 0);
-}
-.filter-row .filter-btn:hover span {
-  opacity: 0.6;
+html, body {
+  overflow: hidden;
 }
 
+.navbar {
+  background-color: transparent !important;
+}
 .navbar .navbar-brand img {
   width: 40px;
 }
 
-a .card {
-  cursor: pointer;
+.container-fluid--list {
+  min-height: -webkit-fill-available;
+  scroll-snap-align: start;
+  overflow-y: scroll;
+  -ms-scroll-snap-type: y mandatory;
+      scroll-snap-type: y mandatory;
+  scroll-snap-stop: always;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.container-fluid--list::-webkit-scrollbar {
+  display: none;
+}
+.container-fluid--list .container-list {
+  height: 100dvh;
+}
+.container-fluid--list .container-list__item {
+  height: 92dvh;
+  scroll-snap-align: start;
 }
 
-.card {
-  transition: box-shadow 0.3s ease-out;
-}
-.card .card-body.card-event svg {
-  height: 6rem;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  translate: -50% -50%;
-  opacity: 0.3;
-  transition: opacity 0.3s ease-out;
-}
-.card .card-body.card-event svg:hover {
-  opacity: 0.8;
-}
-.card .card-body .max-people {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 0.8rem;
-}
-.card:hover {
-  box-shadow: 0 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
-}
-.card:hover .card-body.card-event svg {
-  opacity: 0.8;
+.one {
+  background-color: red;
 }
 
-.modal-event-add {
-  min-height: 150px;
+.two {
+  background-color: blue;
+}
+
+.three {
+  background-color: grey;
+}
+
+.four {
+  background-color: green;
 }
 
 .error {
@@ -82,8 +61,10 @@ a .card {
 
 footer {
   bottom: 0;
+  height: 8dvh;
   width: 100%;
   background-color: white;
+  overflow: hidden;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -97,26 +78,17 @@ footer {
   h1, h2, h3, h4, h5, h6, p, a, span, li, .nav-link, .card-title, .card-text, .card-subtitle {
     color: white;
   }
-  .navbar {
-    background-color: #343a40 !important;
-  }
   .navbar .navbar-brand {
     color: white !important;
   }
   .navbar .navbar-brand img {
     filter: invert(1);
   }
-  .filter-row .filter-btn:hover svg {
-    color: rgb(255, 255, 255);
-  }
   .card {
     background-color: #343a40;
   }
   .card-body {
     color: black;
-  }
-  .card-body.card-event svg {
-    opacity: 0.8;
   }
   .error {
     color: #dc3545;
