@@ -1,0 +1,6 @@
+node_modules/
+.vscode/
+.log
+.env
+db_connect.js
+.DS_Store
