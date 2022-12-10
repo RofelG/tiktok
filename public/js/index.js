@@ -1,5 +1,6 @@
 let lastKnownScrollPosition = 0;
 let scrolling = false;
+let nextFeed;
 
 function addItem() {
   if (scrolling) {
@@ -25,12 +26,40 @@ function addItem() {
       containerList.append(section);
     }
 
+    refreshFeed().then((data) => {
+      console.log(data);
+    });
+
     scrolling = false;
 
     console.log('Start Interval');
     scrollInterval = setInterval(addItem, 1000);
   }
 }
+
+async function refreshFeed() {
+
+  var myHeaders = new Headers();
+  // myHeaders.append("Authorization", "Bearer " + accessToken);
+  myHeaders.append("Authorization", "Client-ID " + clientId);
+  myHeaders.append("Accept", "application/json");
+
+  var requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow'
+  };
+
+  fetch("https://api.imgur.com/3/feed/hot/viral", requestOptions)
+    .then(response => response.text())
+    .then(result => {
+      console.log(result);
+      return result;
+    })
+    .catch(error => console.log('error', error));
+}
+
+
 
 let containerFluidList = document.querySelector('.container-fluid--list');
 
