@@ -33,6 +33,14 @@ html, body {
 .container-fluid--list .container-list__item {
   height: 92dvh;
   scroll-snap-align: start;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+}
+.container-fluid--list .container-list__item--video {
+  height: 100%;
 }
 
 .one {
