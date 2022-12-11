@@ -3,7 +3,6 @@
 require('dotenv').config();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const cors = require("cors");
 const crypto = require('crypto');
 const cookieParser = require('cookie-parser');
 
@@ -23,8 +22,6 @@ const port = process.env.PORT || API_PORT;
 
 //Require Middleware
 const auth = require('./middleware/auth');
-
-app.use(cors());
 
 app.use(cookieParser());
 
