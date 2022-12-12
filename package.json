@@ -1,7 +1,7 @@
 {
-  "name": "Volleyball_Web_App",
+  "name": "Tik Tok Clone",
   "version": "1.0.0",
-  "description": "Volleyball Node.js App with EJS templating on Docker",
+  "description": "TikTok Node.js App with EJS templating connecting to the Imgur API",
   "author": "Rofel Ganado <rofel_p_ganado@hotmail.com>",
   "main": "server.js",
   "scripts": {

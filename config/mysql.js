@@ -1,21 +1,25 @@
 var con = require('../config/database');
 
 module.exports = {
+  // Get User from database
   getUser: async(req, res) => {
     let query = 'SELECT user_id, user_first, user_last, user_email, user_password, user_salt FROM user WHERE user_email = ? AND user_status = 1 LIMIT 1';
     const [user] = await con.query(query, req).catch(err => { throw err} );
     return (user === undefined ? undefined : JSON.parse(JSON.stringify(user)));
   },
+  // Create User in database
   createUser: async(req, res) => {
     let query = 'INSERT INTO user (user_first, user_last, user_email, user_password, user_salt) VALUES (?, ?, ?, ?, ?)';
     const user = await con.query(query, req).catch(err => { throw err} );
     return user.insertId;
   },
+  // Change User Password in database
   changePassword: async(req, res) => {
     let query = 'UPDATE user SET user_password = ?, user_salt = ? WHERE user_id = ?';
     const user = await con.query(query, req).catch(err => { throw err} );
     return user;
   },
+  // Get User Names from database
   postUserNames: async(req, res) => {
     let query = 'SELECT user_id, user_first, user_last, user_email FROM user WHERE 1=1 AND ' 
     let body = req;
