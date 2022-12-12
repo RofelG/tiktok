@@ -46,7 +46,7 @@ app.post('/api/register', async (req, res) => {
     // Validate if user exist in our database
     let oldUser = await con.getUser(user_email);
 
-    // If user does not exist, return error
+    // If user exist, return error
     if (oldUser != undefined) {
       return res.status(409).json({error:"User Already Exist. Please Login"});
     }
