@@ -1,3 +1,4 @@
+// Function handles the form submission
 function handleSubmit(e) {
   // Stop the form from submitting since we’re handling that with AJAX.
   e.preventDefault();
